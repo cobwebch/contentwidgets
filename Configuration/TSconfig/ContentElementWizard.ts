@@ -1,4 +1,4 @@
-mod.wizards.newContentElement.wizardItems.plugins {
+mod.wizards.newContentElement.wizardItems.special {
 	elements {
 		contentwidgets {
 			iconIdentifier = tx_contentwidgets-content-element
@@ -9,4 +9,5 @@ mod.wizards.newContentElement.wizardItems.plugins {
 			}
 		}
 	}
+	show := addToList(contentwidgets)
 }
