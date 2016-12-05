@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Cobweb.Contentwidgets" source-language="en" datatype="plaintext">
+		<body>
+			<trans-unit id="pplugin_wizard_title" xml:space="preserve">
+				<source>Content Widgets</source>
+				<target>Widgets de contenus</target>
+			</trans-unit>
+			<trans-unit id="plugin_wizard_description" xml:space="preserve">
+				<source>Displays content on the page, dynamically loaded using AJAX.</source>
+				<target>Affiche des contenus dans une page, chargés dynamiquement par AJAX.</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

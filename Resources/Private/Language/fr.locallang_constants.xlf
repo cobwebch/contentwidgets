@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Cobweb.Contentwidgets" source-language="en" datatype="plaintext">
+		<body>
+			<trans-unit id="constants.tx_contentwidgets" xml:space="preserve">
+				<source>Content Widgets</source>
+				<target>Widgets de contenus</target>
+			</trans-unit>
+			<trans-unit id="constants.pagetype" xml:space="preserve">
+				<source>Page Type: Type number to use for calling the widget rendering</source>
+				<target>Type de page: Numéro de type de page utilisé pour le rendu des widgets</target>
+			</trans-unit>
+			<trans-unit id="constants.sourcePid" xml:space="preserve">
+				<source>Source page: Forces the page from where the contentwidget is called (0 = current page)</source>
+				<target>Page source: Force la page à partir de laquelle le contentwidget est appelé (0 = page actuelle)</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

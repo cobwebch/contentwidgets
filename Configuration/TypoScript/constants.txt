@@ -1,0 +1,7 @@
+# customsubcategory=contentwidgets=LLL:EXT:contentwidgets/Resources/Private/Language/locallang_constants.xlf:constants.tx_contentwidgets
+
+# cat=contentwidgets; type=int; label=LLL:EXT:contentwidgets/Resources/Private/Language/locallang_constants.xlf:constants.pagetype
+plugin.tx_contentwidgets.pagetype = 4653
+
+# cat=contentwidgets; type=int; label=LLL:EXT:contentwidgets/Resources/Private/Language/locallang_constants.xlf:constants.sourcePid
+plugin.tx_contentwidgets.sourcePid = 0

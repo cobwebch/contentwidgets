@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file original="" product-name="Cobweb.Contentwidgets" source-language="en" datatype="plaintext">
+		<body>
+			<trans-unit id="tt_content.content_elements" xml:space="preserve">
+				<source>Content elements to display</source>
+				<target>Eléments de contenu à afficher</target>
+			</trans-unit>
+			<trans-unit id="tt_content.loadingLabel" xml:space="preserve">
+				<source>Loading message</source>
+				<target>Message pour le chargement</target>
+			</trans-unit>
+			<trans-unit id="tt_content.content_type" xml:space="preserve">
+				<source>Type of content to display</source>
+				<target>Type de contenu à afficher</target>
+			</trans-unit>
+			<trans-unit id="tt_content.content_type.record" xml:space="preserve">
+				<source>Content elements</source>
+				<target>Eléments de contenu</target>
+			</trans-unit>
+			<trans-unit id="tt_content.content_type.lib" xml:space="preserve">
+				<source>TypoScript library</source>
+				<target>Librairie TypoScript</target>
+			</trans-unit>
+			<trans-unit id="tt_content.lib_element_name" xml:space="preserve">
+				<source>Name of the TypoScript library</source>
+				<target>Nom de la librairie TypoScript</target>
+			</trans-unit>
+			<trans-unit id="tabs.widget_properties" xml:space="preserve">
+				<source>Widget Properties</source>
+				<target>Propriétés du widget</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
