@@ -137,7 +137,9 @@ class WidgetController extends AbstractPlugin
         return '
             <script type="text/javascript" id="' . $target . '_js">
                 //<![CDATA[
-				cwidgets("' . $scriptUrl . '","' . $ctype . '","' . $cvar . '","' . $this->renderType . '","' . $target . '");
+                document.addEventListener("DOMContentLoaded", function(event) {
+				    cwidgets("' . $scriptUrl . '","' . $ctype . '","' . $cvar . '","' . $this->renderType . '","' . $target . '");
+				});
 		        //]]>
             </script>
         ';

@@ -6,6 +6,7 @@ plugin.tx_contentwidgets_pi1 {
 	# Template for the loading mask. DO NOT REMOVE THE ###ID### MARKER!
 	loadingMask = <div id="###ID###" class="loading">###LABEL###</div>
 }
+
 plugin.tx_contentwidgets_pi2 {
 	userFunc = Cobweb\Contentwidgets\Controller\OutputController->main
 	renderType = {$plugin.tx_contentwidgets.pagetype}
@@ -24,11 +25,6 @@ contentwidgets {
    }
    10 < plugin.tx_contentwidgets_pi2
 }
-
-# Disable nc_staticfilecache
-[globalVar = GP:type={$plugin.tx_contentwidgets.pagetype}]
-	tx_ncstaticfilecache.disableCache = 1
-[global]
 
 # Add JS library to default page object
 page.includeJS.contentwidgets = EXT:contentwidgets/Resources/Public/JavaScript/contentwidgets.js
