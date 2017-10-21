@@ -1,0 +1,27 @@
+{
+	"name": "cobweb/contentwidgets",
+	"type": "typo3-cms-extension",
+	"description": "This extension makes it possible to load content inside a TYPO3 CMS page using an AJAX call. Either a TypoScript library or a selection of content elements may be loaded in such a way.",
+	"license": [
+		"GPL-2.0+"
+	],
+	"authors": [
+		{
+			"name": "Roberto Presedo",
+			"role": "Developer"
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"Cobweb\\Contentwidgets\\": "Classes/"
+		}
+	},
+	"version": "1.0.0",
+	"require": {
+		"typo3/cms-core": ">=7.6.0,<8.0"
+	},
+	"replace": {
+		"external_import": "self.version",
+		"typo3-ter/external_import": "self.version"
+	}
+}
