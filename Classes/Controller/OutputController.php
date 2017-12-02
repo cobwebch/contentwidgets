@@ -30,9 +30,12 @@ class OutputController extends AbstractPlugin
      * Allowed content types
      */
     const ALLOWED_TYPES = array('record', 'lib');
+    /**
+     * Allowed content types
+     */
+    const ALLOWED_OUTPUTS = array('local', 'crosssite');
 
-    public $prefixId = 'tx_contentwidgets_pi2'; // Same as class name
-    public $scriptRelPath = 'pi2/class.tx_contentwidgets_pi2.php'; // Path to this script relative to the extension dir.
+    public $prefixId = 'cwoutput'; // Same as class name
     public $extKey = 'contentwidgets'; // The extension key.
     public $pi_checkCHash = true;
 
@@ -52,6 +55,11 @@ class OutputController extends AbstractPlugin
     protected $renderType;
 
     /**
+     * @var string ID of the DOM element in which the generated element will be displayes
+     */
+    protected $targetId;
+
+    /**
      * @var int|string ID of the content elements or name of the TS object to render
      */
     protected $contentKey;
@@ -65,6 +73,11 @@ class OutputController extends AbstractPlugin
      * @var string Name of the callback function (if any)
      */
     protected $callbackName;
+
+    /**
+     * @var string insite or crosssite
+     */
+    protected $output;
 
     /**
      * Returns the plugin content.
@@ -115,12 +128,55 @@ class OutputController extends AbstractPlugin
             die('Content Type is not valid');
         }
 
+        if ($this->output === 'crosssite'){
+            $this->setCrossSiteOutput();
+        }
+
         if ($this->return !== '') {
             $this->wrapOutput();
         }
 
         return $this->return;
     }
+
+
+    /**
+     * Prepares the content to be returned to a regular js call
+     */
+    function setCrossSiteOutput()
+    {
+        $return = '';
+        $TempVarName = 'CW_' . substr(md5(uniqid('', 1)), 0, 8);
+
+        // Cleaning the unique var (making sure it's empty)
+        $return .= "\n" . 'var ' . $TempVarName . " = '';\n";
+
+        // Cleaning the content to return
+        $search = array("\\", "\r", '"', "'", '<');
+        $replace = array("\\\\", '', '\"', "\\'", '<"+"');
+        $content = str_replace($search, $replace, $this->return);
+
+        // Splitting the content into several lines
+        foreach (explode("\n", $content) AS $currentLine) {
+            if (trim($currentLine) != '') {
+                $return .= "\n" . $TempVarName . ' += "' . trim($currentLine) . '\n";';
+            }
+        }
+
+        $return .= '
+var cw_target = document.getElementById(\'' . $this->targetId . '\');
+var newElement = document.createElement("div");
+newElement.id = "' . $this->targetId . '_el";
+newElement.innerHTML = ' . $TempVarName . ';
+cw_target.parentNode.appendChild(newElement, cw_target);
+cw_target.parentNode.removeChild(cw_target);';
+
+        $this->return = $return;
+    }
+
+
+
+
 
     /**
      * Initializes configuration.
@@ -163,6 +219,13 @@ class OutputController extends AbstractPlugin
         if (ctype_alnum($gp['cw_cback']) && $gp['cw_cback'] !== '') {
             $this->callbackName = $gp['cw_cback'];
         }
+        $this->targetId = $gp['cw_cuid'];
+
+        if (in_array($gp['cw_output'], self::ALLOWED_OUTPUTS, true)) {
+            $this->output = $gp['cw_output'];
+        }
+
+
     }
 
     /**
